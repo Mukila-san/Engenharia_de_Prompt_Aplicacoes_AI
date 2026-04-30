@@ -1,0 +1,2 @@
+COMO A DIVISÃO DE TOKENS INFLUENCIA NA RESPOSTA DA IA: 
+  As IAs não leêm textos palavra por palavras como os humanos, e sim por tokens, que podem ser palavras, partes de palavras ou até mesmo caracteres. Outro ponto importante é que a probabilidade das próximas palavras é calculada com base nesses tokens. Ou seja, pequenas mudanças na forma como o texto é dividido podem alterar as previsões e, consequentemente, a resposta final.
