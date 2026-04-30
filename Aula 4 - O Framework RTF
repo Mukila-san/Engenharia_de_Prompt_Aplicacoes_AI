@@ -1,0 +1,66 @@
+PROMPT ATRIBUINDO R (Papel), T (Tarefa) e F (Formato):
+
+PROMPT:
+Você é um instrutor de Python experiente. Crie uma função que calcule a média de uma lista de números, incluindo tratamento de erros rigoroso para listas vazias. Forneça o código Python amplamente comentado, seguido de exatos 3 casos de teste.
+
+RESPOSTA:
+def calcular_media(numeros):
+    """
+    Calcula a média de uma lista de números.
+
+    Parâmetros:
+    numeros (list): Lista contendo valores numéricos (int ou float)
+
+    Retorno:
+    float: Média dos valores da lista
+
+    Levanta:
+    ValueError: Se a lista estiver vazia
+    TypeError: Se algum elemento não for numérico
+    """
+
+    # Verifica se a entrada é realmente uma lista
+    if not isinstance(numeros, list):
+        raise TypeError("O parâmetro deve ser uma lista.")
+
+    # Verifica se a lista está vazia
+    if len(numeros) == 0:
+        raise ValueError("A lista não pode estar vazia.")
+
+    # Inicializa a variável que armazenará a soma dos elementos
+    soma = 0.0
+
+    # Percorre cada elemento da lista
+    for i, valor in enumerate(numeros):
+        # Verifica se o elemento é numérico (int ou float)
+        if not isinstance(valor, (int, float)):
+            raise TypeError(f"O elemento na posição {i} não é numérico.")
+
+        # Acumula o valor na soma total
+        soma += valor
+
+    # Calcula a média dividindo a soma pela quantidade de elementos
+    media = soma / len(numeros)
+
+    # Retorna o valor da média
+    return media
+
+
+# =========================
+# Casos de teste (exatamente 3)
+# =========================
+
+# Caso 1: Lista válida
+print(calcular_media([10, 20, 30]))  # Esperado: 20.0
+
+# Caso 2: Lista vazia (deve gerar erro)
+try:
+    print(calcular_media([]))
+except Exception as e:
+    print(e)  # Esperado: ValueError
+
+# Caso 3: Lista com elemento inválido
+try:
+    print(calcular_media([10, "a", 30]))
+except Exception as e:
+    print(e)  # Esperado: TypeError
